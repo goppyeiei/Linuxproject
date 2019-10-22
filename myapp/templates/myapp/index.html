@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="django form with utf-8">
+    <meta name="author" content="Chutdanai">
+    <title>GGWP PROJECT</title>
+
+    {% load static %}
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+
+    <style>
+      .filled {
+        width: 80%;
+        padding: 5px;
+      }
+      .spacing {
+        padding: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <nav> <h1> GGWP PAGE </h1> </nav>
+    <div>
+      <section class="filled">
+        <form action="index" method="POST" enctype="multipart/form-data;charset=UTF-8">
+          {% csrf_token %}
+          <div class="spacing">Name : <input class="filled" type="text" name="icon" value=""/></div>
+          <div class="spacing">LastName : <input class="filled" type="text" name="title" value=""/></div>
+          <div class="spacing">Email : <input class="filled" type="text" name="detail" value=""/></div>
+          <div class="spacing"><button style="padding: 2em;" type="submit">Submit</button></div>
+        </form>
+      </section>
+      <div>
+       <table style="width:100%; border: 1px solid black; padding: 1em;">
+        <tr>
+          <th>NAME</th>
+          <th>LAST NAME</th>
+          <th>EMAIL</th>
+        </tr>
+        {% for s in services %}
+        <tr>
+          <td> <i class="fa {{s.icon}}"></i> {{ s.icon }}</td>
+          <td>{{ s.title }}</td>
+          <td>{{ s.detail }}</td>
+        </tr>
+        {% endfor %}
+      </table> 
+      </div>
+    </div>
+    <footer>
+      <div><br>
+        <div>Copyright &copy; 2019 </div>
+      </div>
+    </footer>
+  </body>
+
+</html>
