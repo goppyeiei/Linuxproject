@@ -20,3 +20,13 @@ def index(req):
         services = Service.objects.all()
         print(services)
         return render(req, 'myapp/index.html', { 'services': services })
+
+def main(req):
+    return render(req, 'myapp/main.html')
+
+def developer(req):
+    return render(req, 'myapp/developer.html')
+
+
+
+
